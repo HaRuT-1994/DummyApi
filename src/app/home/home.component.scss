@@ -1,0 +1,22 @@
+h2 {
+  text-align: center;
+}
+
+.users-box {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 5px 30px;
+
+  &-item {
+    width: 250px;
+    margin: 10px 20px;
+    border: 1px solid rgb(133, 103, 5);
+    border-radius: 7px;
+    padding: 10px;
+
+    img {
+      width: 90px;
+    }
+  }
+}

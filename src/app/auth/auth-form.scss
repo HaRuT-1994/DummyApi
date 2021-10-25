@@ -1,0 +1,36 @@
+.form-block {
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #37e6f3;
+  width: 270px;
+  border: 3px groove rgb(224, 221, 221);
+  padding: 10px;
+
+  label {
+    font-weight: bold;
+  }
+
+  input {
+    width: 245px;
+    height: 25px;
+    margin-bottom: 8px;
+  }
+
+  button {
+    padding: 3px;
+  }
+
+  a {
+    text-decoration: none;
+    margin-left: 15px;
+
+    &:hover {
+      color: rgb(145, 39, 7);
+    }
+  }
+
+  p {
+    color: rgb(151, 9, 9);
+  }
+}

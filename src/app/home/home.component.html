@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<h2>
+  Welcome!
+</h2>
+<div class="users-box">
+  <div class="users-box-item" *ngFor="let user of users" (click)="getUser(user.id)">
+    <img src="{{user.picture}}" alt="user">
+    <h3>{{user.title}} {{user.firstName}} {{user.lastName}}</h3>
+  </div>
+</div>
+
+<app-user [modalVisible]="modalVisible" [user]="userData"  (handleEvent)="visibleModal($event)"></app-user>
+
+<!-- <nz-modal-basic [isVisible]="modalVisible" (handleEvent)="visibleModal($event)">
+  <app-loader *ngIf="!userData"></app-loader>
+  <div *ngIf="userData" class="user-block">
+    <div>
+      <img src="{{userData.picture}}" alt="{{userData.firstName}}">
+    </div>
+    <div>
+      <h3>{{userData.title}} {{userData.firstName}} {{userData.lastName}}</h3>
+      <ul>
+        <li>Date of Birth: {{userData.dateOfBirth | date}}</li>
+        <li>Email: {{userData.email}}</li>
+        <li>Phone: {{userData.phone}}</li>
+      </ul>
+    </div>
+    <div>
+     <ul>
+       <li>Country: {{ userData.location.country }}</li>
+       <li>City: {{ userData.location.city }}</li>
+       <li>State: {{ userData.location.state }}</li>
+       <li>Street: {{ userData.location.street }}</li>
+     </ul>
+    </div>
+  </div>
+</nz-modal-basic> -->

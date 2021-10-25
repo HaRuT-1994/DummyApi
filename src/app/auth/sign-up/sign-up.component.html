@@ -1,0 +1,33 @@
+<div class="form-block">
+    <form (ngSubmit)="onSignUp()" #f="ngForm">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="firstname" placeholder="*" [(ngModel)]="user.firstname" #fname="ngModel" required>
+        <p *ngIf="fname.invalid && (fname.dirty || fname.touched)">Name is required.</p>
+        
+        <label for="lastname">Lastname:</label>
+        <input type="text" id="lastname" name="lastname" [(ngModel)]="user.lastname">
+
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" name="email" placeholder="*" [(ngModel)]="user.email" #email="ngModel" required>
+        <p *ngIf="email.invalid && (email.dirty || email.touched)">Email is required.</p>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="*" [(ngModel)]="user.password" #password="ngModel" required minlength="4">
+        <div *ngIf="password.invalid && password.touched">
+          <p *ngIf="password.errors?.required">Password is required.</p>
+          <p *ngIf="password.errors?.minlength">Password must be at least 4 characters long.</p>
+        </div>
+
+        <label for="confirmpassword">Confirm passsword:</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" placeholder="*" [(ngModel)]="user.confirmpassword"  ngValidateEqual="password" #cpassword="ngModel" required minlength="4">
+        <div *ngIf="cpassword.invalid && cpassword.touched">
+          <p *ngIf="cpassword.hasError('notEqual')">Passwords Don't Match</p>
+          <p *ngIf="cpassword.errors?.required">Password is required.</p>
+          <p *ngIf="cpassword.errors?.minlength">Password must be at least 4 characters long.</p>
+        </div>
+
+        <button type="submit" [disabled]="!f.valid">Sign Up</button>
+        <a href="#" routerLink="/login">Login</a>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<nz-modal-basic [isVisible]="modalVisible" (handleEvent)="visibleModal($event)">
+  <app-loader *ngIf="!user"></app-loader>
+  <div *ngIf="user" class="user-block">
+    <div>
+      <img src="{{user.picture}}" alt="{{user.firstName}}">
+    </div>
+    <div>
+      <h3>{{user.title}} {{user.firstName}} {{user.lastName}}</h3>
+      <ul>
+        <li>Date of Birth: {{user.dateOfBirth | date}}</li>
+        <li>Email: {{user.email}}</li>
+        <li>Phone: {{user.phone}}</li>
+      </ul>
+    </div>
+    <div>
+     <ul>
+       <li>Country: {{ user.location.country }}</li>
+       <li>City: {{ user.location.city }}</li>
+       <li>State: {{ user.location.state }}</li>
+       <li>Street: {{ user.location.street }}</li>
+     </ul>
+    </div>
+  </div>
+</nz-modal-basic>
