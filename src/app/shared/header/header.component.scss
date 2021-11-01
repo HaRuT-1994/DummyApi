@@ -9,11 +9,13 @@ header {
     &:hover {
       width: 90px;
       height: 90px;
-      transition: 0.3s;
+      transition: 0.4s;
     }
+    margin-right: 50px;
   }
 
   a {
+    color: rgb(220 249 255);
     text-decoration: none;
     cursor: pointer;
     font-weight: bold;

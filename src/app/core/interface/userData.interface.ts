@@ -5,7 +5,12 @@ export interface UserData {
   gender: string,
   id: string,
   lastName: string,
-  location: Object,
+  location: {
+    country: string,
+    city: string,
+    state: string,
+    street: string
+  }
   phone: string,
   picture: string,
   registerDate: string,

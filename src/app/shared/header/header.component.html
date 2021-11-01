@@ -1,4 +1,10 @@
 <header>
-  <img src="assets/icons8-home-96.png" alt="">
-  <a (click)="logOut()">Logout</a>
+  <div>
+    <img src="assets/icons8-home-96.png" alt="Home" routerLink="/home">
+    <img src="assets/icons8-ball-64.png" alt="Ball" routerLink="/ball">
+  </div>
+  
+  <div *ngIf="loggedUser">
+    <a  (click)="logOut()">Logout</a>
+  </div>
 </header>

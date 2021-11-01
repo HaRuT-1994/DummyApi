@@ -1,0 +1,12 @@
+<h2>
+  Welcome!
+</h2>
+<app-loader *ngIf="!users.length"></app-loader>
+<div class="users-box">
+  <div class="users-box-item" *ngFor="let user of users" (click)="getUser(user.id)">
+    <img src="{{user.picture}}" alt="user">
+    <h3>{{user.title}} {{user.firstName}} {{user.lastName}}</h3>
+  </div>
+</div>
+
+<app-user [modalVisible]="modalVisible" [user]="userData"  (handleEvent)="visibleModal($event)"></app-user>

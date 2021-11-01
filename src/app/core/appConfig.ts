@@ -6,6 +6,9 @@ export const appConfig = {
       endpoint: {
         user: '/:id'
       }
+    },
+    firebase: {
+      baseUrl: 'https://authproject-e1ad7-default-rtdb.asia-southeast1.firebasedatabase.app/'
     }
   }
 }

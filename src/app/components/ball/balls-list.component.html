@@ -1,0 +1,29 @@
+<main>
+  <button (click)="addBall()">Add Ball</button>
+  <table *ngIf="!isLoading">
+    <thead>
+      <th>Color</th>
+      <th>Material</th>
+      <th>UseType</th>
+      <th>Shape</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ball of balls; index as i">
+        <td>{{ball.color}}</td>
+        <td>{{ball.material}}</td>
+        <td>{{ball.useType}}</td>
+        <td>{{ball.shape}}</td>
+        <td>
+          <img src="assets/icons8-menu-vertical-24.png" alt="settings" height="15" (click)="toggleSettings(i)">
+          <div *ngIf="count===i" class="settings" [ngClass]="showSetting ? 'show' : 'hide' ">
+            <ul>
+              <li (click)="goToEdit(i)">Edit</li>
+              <li (click)="onDeleteItem(i)">Delete</li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-loader *ngIf="isLoading"></app-loader>
+</main>

@@ -1,0 +1,9 @@
+<form>
+  <input type="text" placeholder="color" name="color" [(ngModel)]="ball.color"><br>
+  <input type="text" placeholder="material" name="material" [(ngModel)]="ball.material"><br>
+  <input type="text" placeholder="use Type" name="useType" [(ngModel)]="ball.useType"><br>
+  <input type="text" placeholder="shape" name="shape" [(ngModel)]="ball.shape"><br>
+  <button type="submit" *ngIf="!isOnEdit" (click)="addBall()">Add</button>
+  <button type="submit" *ngIf="isOnEdit" (click)="editBall()">Edit</button>
+</form>
+<app-loader *ngIf="isLoading"></app-loader>

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './auth/auth-guard.service';
-import { LoginComponent } from './auth/login/login.component';
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './home/user/user.component';
+import { AuthGuardService } from './core/guards/auth-guard.service';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { HomeComponent } from './components/home/home.component';
+import { UserComponent } from './components/home/user/user.component';
+import { PageNotfoundComponent } from './components/page-notfound/page-notfound.component';
+import { LoadGuardService } from './core/guards/load-guard.service';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,10 +16,11 @@ const routes: Routes = [
     children: [
       { path: 'user', component: UserComponent }
     ]
-
   },
+  { path: 'ball', canLoad: [LoadGuardService], loadChildren: () => import(`./components/ball/ball.module`).then(m => m.BallModule) },
+
   { path: '',   redirectTo: '/login', pathMatch: 'full' }, 
-  { path: '**', component: LoginComponent }
+  { path: '**', component: PageNotfoundComponent }
 ];
 
 @NgModule({
