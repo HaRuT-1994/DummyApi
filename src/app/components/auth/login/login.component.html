@@ -1,11 +1,11 @@
 <div class="form-block">
   <form (ngSubmit)="onLogin()">
-    <label for="mail">Email:</label>
+    <label for="mail">{{'signIn.labelMail' | translate}}</label>
     <input type="email" id="mail" name="email" [(ngModel)]="user.email">
-    <label for="password">Password:</label>
+    <label for="password">{{'signIn.labelPass' | translate}}</label>
     <input type="password" id="password" name="password" [(ngModel)]="user.password">
-    <button type="submit">Login</button>
-    <a href="#" routerLink="/sign-up">Sign-up</a>
+    <button type="submit">{{'signIn.login' | translate}}</button>
+    <a href="#" routerLink="/sign-up">{{'signIn.signup' | translate}}</a>
   </form>
   <app-loader *ngIf="loading"></app-loader>
 </div>

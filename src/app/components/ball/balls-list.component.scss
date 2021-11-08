@@ -13,7 +13,7 @@ table {
    border: 1px solid burlywood;
   }
 
-  td:last-child() {
+  td:last-child {
     position: relative;
     border-style: none !important;
     

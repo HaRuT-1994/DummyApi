@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/home/user/user.component';
 import { PageNotfoundComponent } from './components/page-notfound/page-notfound.component';
 import { LoadGuardService } from './core/guards/load-guard.service';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 
 const routes: Routes = [
@@ -18,9 +19,10 @@ const routes: Routes = [
     ]
   },
   { path: 'ball', canLoad: [LoadGuardService], loadChildren: () => import(`./components/ball/ball.module`).then(m => m.BallModule) },
+  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardService] },
 
   { path: '',   redirectTo: '/login', pathMatch: 'full' }, 
-  { path: '**', component: PageNotfoundComponent }
+  { path: '**', component: PageNotfoundComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

@@ -1,2 +1,5 @@
 <app-header></app-header>
+<select (click)="selectLanguage($event)">
+  <option *ngFor="let item of supportLanguages">{{item}}</option>
+</select>
 <router-outlet></router-outlet>
