@@ -1,0 +1,51 @@
+<h1>Custom Calendar</h1>
+
+<div class="calendar">
+  <input type="text" placeholder="Choose a date" [(ngModel)]="newVal">
+  <div class="calendar-icon" (click)="toggleCalendar()"></div>
+  <div class="calendar-body" *ngIf="showCalendar">
+    <div class="grid-container">
+      <select (click)="onToggleBody()">
+        <option [selected]="showCalendar">{{ monthData.whichMonth }} {{monthData.whichYear}}</option>
+        <option [selected]="toggleBody">{{ getYears[0] }} - {{ getYears[24]}}</option>
+        <option [selected]="selectYear">{{ year }}</option>
+      </select>
+      <div>
+        <span (click)="leftArrow()">&#8592;</span>
+        <span (click)="rightArrow()">&#8594;</span>
+      </div>
+    </div>
+    <div *ngIf="!toggleBody" class="grid-container">
+      <span>S</span>
+      <span>M</span>
+      <span>T</span>
+      <span>W</span>
+      <span>T</span>
+      <span>F</span>
+      <span>S</span>
+    </div>
+    <hr>
+    <ng-container *ngIf="!toggleBody;  else years">
+      <p>{{ monthData.whichMonth }}</p>
+      <div class="grid-container days">
+        <span
+          *ngFor="let day of monthData.daysInMonth; let i = index"
+          [ngStyle]="{'gridColumnStart': i === 0 ? monthData.firstdayInMonth + 1 : 'auto'}"
+          [appDayMark]="monthData.whichDay === day ? 'rgb(30,195,195)' : 'white'"
+          (click)="newValue(day)"
+          >{{day}}</span>
+      </div>
+    </ng-container>
+    <ng-template #years>
+      <div class="grid-container-year" *ngIf="!selectYear; else months">
+        <span *ngFor="let year of getYears; index as y" (click)="onSelectYear(y)">{{year}}</span>
+      </div>
+      <ng-template #months>
+        <div class="grid-container-month">
+          <span *ngFor="let month of getMonths; index as m" (click)="onSelectMonth(m)">{{month}}</span>
+
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

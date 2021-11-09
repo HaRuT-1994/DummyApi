@@ -1,0 +1,11 @@
+{
+  "home": {
+    "title": "Hello world,"
+  },
+  "signIn": {
+    "labelMail": "Email",
+    "labelPass": "Password",
+    "login": "Login",
+    "signup": "Sign-up"
+  }
+}

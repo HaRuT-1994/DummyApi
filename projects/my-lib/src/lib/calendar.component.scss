@@ -1,0 +1,72 @@
+h1 {
+  margin-left: 25px;
+}
+.calendar{
+  position: relative;
+  margin-left: 15px;
+
+  input {
+    padding: 10px;
+    width: 250px;
+  }
+
+  .calendar-icon {
+    position: absolute;
+    left: 220px;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &-body{
+    width: 270px;
+    border: 2px solid rgb(58, 128, 124);
+
+    select {
+      option, &:focus {
+        display: none;
+      }
+    }
+
+    span {
+      margin: 5px;
+      padding: 5px;
+      border-radius: 20px;
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .days {
+      span:hover {
+        background-color: rgb(27, 147, 147) !important;
+      }
+    }
+
+    .grid-container, .grid-container-year, .grid-container-month {
+      display: grid;
+    }
+
+    .grid-container {
+      grid-template-columns: auto auto auto auto auto auto auto;
+    }
+
+    .item-1 {
+      grid-column-start: 2;
+    }
+
+    .grid-container-year {
+      grid-template-columns: auto auto auto auto auto;
+    }
+
+    .grid-container-month {
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+
+  p {
+    padding-left: 15px;
+  }
+}
